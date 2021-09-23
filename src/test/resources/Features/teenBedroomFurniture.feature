@@ -9,5 +9,5 @@ Feature: Navigate Through Teen Bedroom Furniture
     Then select Bed Type Standard Bed and select Product Type Bunk Bed
     Then click on Color button and select color Bronze Chrome and Black
     Then click on Material Tab and select Metal and Iron
-    Then Click On Sort By Option and Select Price per Item Low to High
+    Then click On item per page and select 96
     And  user has close the browser

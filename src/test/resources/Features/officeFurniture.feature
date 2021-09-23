@@ -9,5 +9,5 @@ Feature: Navigate Through Office Furniture
     Then user click on Executive Chair under Type section
     Then user click on Arm Type tab
     And select Arm Style as Armless
-    Then user click on Sort by tab and select Customer Rating
+    Then user click on next button
     And user did close the browser

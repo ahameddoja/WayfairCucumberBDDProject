@@ -24,7 +24,6 @@ public class LoginAndProductCheckOutBONUS {
     private static final By ClickPlanterBoxesType = By.xpath("//*[@id='CollapsePanel-0']/div/div/div/div/div/div[2]/div/div/div/label[@data-codeception-id='ImageCheckbox']");
     private static final By ClickProduct = By.xpath("//*[@id='ProductCard-details-W001508325']/div/h2[text()='Hirst Wood Planter Box']");
     private static final By ClickAddToCartButton = By.id("btn-add-to-cart");
-    private static final By WhatsCovered = By.xpath("//button[@data-enzyme-id='confidenceBarStacked_link_1']");
     private static final By NoThanksButton = By.xpath("//button[@data-enzyme-id='NO_THANKS_BUTTON']");
     private static final By ClickReviewCartButton = By.xpath("//a[@data-enzyme-id='continueToCartCta']");
     private static final By ClickShipToButton = By.xpath("//*[@id='sideRail']//button[2][@class='Button Button--primary Button--plainText']");
@@ -32,6 +31,7 @@ public class LoginAndProductCheckOutBONUS {
     private static final By ClickUpdateButton = By.xpath("//*[@id='sideRail']//button[text()='Update']");
     private static final By ClickProceedToCheckoutButton = By.xpath("//*[@id='sideRail']//button[@data-codeception-id='proceed-checkout-button']");
     private static final By ClickBackToCartButton = By.xpath("//*[@id='root-container']//a[@data-hb-id='Button']");
+    private static final By ClickSignOutButton = By.xpath("//*[@id='HeaderDrawerStatusButton'][@tracker='[object Object]']");
 
 
     private static final Logger LOGGER = LogManager.getLogger(LoginAndProductCheckOutBONUS.class);
@@ -49,7 +49,6 @@ public class LoginAndProductCheckOutBONUS {
     @When("^user click on menu bar from left$")
     public void clickOnMenuBar() throws InterruptedException {
         Thread.sleep(2000);
-        ActOn.element(driver, ClickMenuOption).getElement();
         ActOn.element(driver, ClickMenuOption).click();
         LOGGER.info("User clicked on menu bar from left");
     }
@@ -57,7 +56,6 @@ public class LoginAndProductCheckOutBONUS {
     @Then("^user click on Sign In Button$")
     public void clickSignInButton() throws InterruptedException {
         Thread.sleep(2000);
-        ActOn.element(driver, ClickSignInButton).getElement();
         ActOn.element(driver, ClickSignInButton).click();
         LOGGER.info("User clicked on Sign In Button");
     }
@@ -84,7 +82,6 @@ public class LoginAndProductCheckOutBONUS {
 
     @Then("^user click on planters and select type and product$")
     public void clickPlantersAndSelectProduct() throws InterruptedException {
-        ActOn.element(driver, ClickPlanters).getElement();
         Thread.sleep(2000);
         ActOn.element(driver, ClickPlanters).click();
         Thread.sleep(2000);
@@ -104,23 +101,13 @@ public class LoginAndProductCheckOutBONUS {
 
     @And("^user clicked on No Thanks button$")
     public void clickNoThanksButton() throws InterruptedException {
-         ActOn.element(driver, NoThanksButton).getElement();
          Thread.sleep(5000);
          ActOn.element(driver, NoThanksButton).click();
          LOGGER.info("User clicked on No Thanks button");
     }
 
-    @Then("^user click on Whats Covered link")
-    public void clickAWhatsCoveredLink() throws InterruptedException {
-        ActOn.element(driver, WhatsCovered).getElement();
-        Thread.sleep(3000);
-        ActOn.element(driver, WhatsCovered).click();
-        LOGGER.info("User clicked on Whats Covered link");
-    }
-
     @Then("^user click on Review Cart button$")
     public void clickReviewCartButton() throws InterruptedException {
-        ActOn.element(driver, ClickReviewCartButton).getElement();
         Thread.sleep(2000);
         ActOn.element(driver, ClickReviewCartButton).click();
         LOGGER.info("User clicked on Review Cart button");
@@ -128,7 +115,6 @@ public class LoginAndProductCheckOutBONUS {
 
     @Then("^user click on ship to button$")
     public void clickOnShipToButton() throws InterruptedException {
-        ActOn.element(driver, ClickShipToButton).getElement();
         Thread.sleep(2000);
         ActOn.element(driver, ClickShipToButton).click();
         LOGGER.info("User clicked on ship to button");
@@ -136,10 +122,8 @@ public class LoginAndProductCheckOutBONUS {
 
     @And("^user provide the \"(.+?)\" in Ship to option and click the update button$")
     public void enterZipCode(String ZipCode) throws InterruptedException {
-        ActOn.element(driver, InputZipCode).getElement();
         Thread.sleep(1000);
         ActOn.element(driver, InputZipCode).setValue(ZipCode);
-        ActOn.element(driver, ClickUpdateButton).getElement();
         Thread.sleep(1000);
         ActOn.element(driver, ClickUpdateButton).click();
         LOGGER.info("User provided zipcode in Ship to option and click the update button");
@@ -147,7 +131,6 @@ public class LoginAndProductCheckOutBONUS {
 
     @Then("^user click on Proceed to Checkout button$")
     public void clickOnProceedToCheckoutButton() throws InterruptedException {
-        ActOn.element(driver, ClickProceedToCheckoutButton).getElement();
         Thread.sleep(2000);
         ActOn.element(driver, ClickProceedToCheckoutButton).click();
         LOGGER.info("User clicked on Proceed to Checkout button");
@@ -155,10 +138,18 @@ public class LoginAndProductCheckOutBONUS {
 
     @Then("^user click on Back to Cart button$")
     public void clickOnBackToCartButton() throws InterruptedException {
-        ActOn.element(driver, ClickBackToCartButton).getElement();
         Thread.sleep(2000);
         ActOn.element(driver, ClickBackToCartButton).click();
         LOGGER.info("User clicked on Back to Cart button");
+    }
+
+    @And("^user click on menu bar from left again and click SignOut Button$")
+    public void clickOnMenuButton() throws InterruptedException {
+        Thread.sleep(2000);
+        ActOn.element(driver, ClickMenuOption).click();
+        Thread.sleep(2000);
+        ActOn.element(driver, ClickSignOutButton).click();
+        LOGGER.info("User clicked on menu bar from left again and click SignOut Button");
     }
 
     @And("^user close the browser successfully$")

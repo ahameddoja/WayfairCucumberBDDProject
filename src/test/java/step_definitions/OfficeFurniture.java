@@ -20,8 +20,7 @@ public class OfficeFurniture {
     private static final By ChairType = By.xpath("//*[@id='CollapsePanel-9']/div/div/div/div/div/div[2]/div/div/div/label");
     private static final By ChairArmType = By.xpath("//*[@id='CollapseToggle-11']");
     private static final By ArmStyle = By.xpath("//*[@id='CollapsePanel-11']/div/div/div/div/div[1]/div/div/div[2]/div/div/div/label");
-    private static final By SortBy = By.xpath("//*[@id='bd']/div[1]//div[@class='pl-DropdownInput-inputContainer']");
-    private static final By CustomerRating = By.xpath("//*[@id='downshift-0-item-1']/div/div");
+    private static final By ClickNextButton = By.xpath("//a[@aria-label='Next']");
 
 
     private static final Logger LOGGER = LogManager.getLogger(OfficeFurniture.class);
@@ -88,13 +87,11 @@ public class OfficeFurniture {
         ActOn.element(driver, ArmStyle).click();
         LOGGER.info("user selected Arm style type as Armless");
     }
-    @Then("^user click on Sort by tab and select Customer Rating$")
-    public void clickOnSortBy() throws InterruptedException {
-        Thread.sleep(7000);
-        ActOn.element(driver, SortBy).click();
-        Thread.sleep(3000);
-        ActOn.element(driver, CustomerRating).click();
-        LOGGER.info("user clicked on Sort by tab and select Customer Rating");
+    @Then("^user click on next button$")
+    public void clickOnNextButton() throws InterruptedException {
+        Thread.sleep(2000);
+        ActOn.element(driver, ClickNextButton).click();
+        LOGGER.info("user clicked on next button");
     }
 
     @Then("^user did close the browser$")

@@ -24,8 +24,8 @@ public class TeenBedroomFurniture {
     private static final By ClickMaterial = By.xpath("//p[normalize-space()='Material']");
     private static final By SelectMetal = By.xpath("//*[@id='CollapsePanel-4']/div/div/div/div[1]/div/div[1]/div/div/div/label");
     private static final By SelectIron = By.xpath("//*[@id='CollapsePanel-4']/div/div/div/div[2]/div/div[2]/div/div/div/label");
-    private static final By SortBy = By.xpath("//*[@id='bd']/div[1]/div[1]/div[3]//div[@class='pl-DropdownInput-valueContainer']");
-    private static final By PriceLowToHigh = By.xpath("//*[@id='downshift-0-item-2']/div/div");
+    private static final By ItemPerPage = By.xpath("//*[@id='sbprodgrid']//div[2][@class='pl-DropdownInput-inputContainer'][@aria-haspopup='listbox']");
+    private static final By Select96 = By.xpath("//div[@class='pl-Box--defaultColor'][normalize-space()='96']");
 
     private static final Logger LOGGER = LogManager.getLogger(TeenBedroomFurniture.class);
     WebDriver driver = Hooks.driver;
@@ -100,13 +100,13 @@ public class TeenBedroomFurniture {
         LOGGER.info("User clicked on Material Tab and selected Metal and Iron");
     }
 
-    @Then("^Click On Sort By Option and Select Price per Item Low to High$")
+    @Then("^click On item per page and select 96$")
     public void clickOnSortByOption() throws InterruptedException {
-        Thread.sleep(7000);
-        ActOn.element(driver, SortBy).click();
+        Thread.sleep(5000);
+        ActOn.element(driver, ItemPerPage).click();
         Thread.sleep(2000);
-        ActOn.element(driver, PriceLowToHigh).click();
-        LOGGER.info("Clicked On Sort By Option and Selected Price per Item Low to High");
+        ActOn.element(driver, Select96).click();
+        LOGGER.info("Clicked On item per page and select 24");
     }
 
     @Then("^user has close the browser$")

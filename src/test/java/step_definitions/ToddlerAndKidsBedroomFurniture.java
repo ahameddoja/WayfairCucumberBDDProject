@@ -23,8 +23,8 @@ public class ToddlerAndKidsBedroomFurniture {
     private static final By PricePerItem = By.xpath("//p[contains(text(),'Price Per Item')]");
     private static final By Select100To250 = By.xpath("//*[@id='CollapsePanel-26']/div/div/div/div/div[3]/label/span[1]/span");
     private static final By Select500To750 = By.xpath("//*[@id='CollapsePanel-26']/div/div/div/div/div[5]/label/span[1]/span");
-    private static final By SelectSortBy = By.xpath("//*[@id='bd']/div[1]/div[1]/div[3]/div/div/div[1]/div[1]/div[2]");
-    private static final By SelectCustomerRating = By.xpath("//*[@id='downshift-0-item-1']/div/div");
+    private static final By SelectItemPerPage = By.xpath("//*[@id='sbprodgrid']//div[1][@class='pl-DropdownInput-valueContainer']");
+    private static final By Select24 = By.xpath("//div[@class='pl-Box--defaultColor'][normalize-space()='24']");
 
     private static final Logger LOGGER = LogManager.getLogger(ToddlerAndKidsBedroomFurniture.class);
     WebDriver driver = Hooks.driver;
@@ -33,7 +33,6 @@ public class ToddlerAndKidsBedroomFurniture {
     public void navigateToHomePage() throws InterruptedException {
         driver.get("https://www.wayfair.com/");
         driver.manage().window().maximize();
-        Thread.sleep(5000);
         driver.manage().deleteAllCookies();
         LOGGER.info("User is in the Home Page");
     }
@@ -97,13 +96,13 @@ public class ToddlerAndKidsBedroomFurniture {
         LOGGER.info("User Clicked on Price Per item and select option 100 to 250 and 500 to 750");
     }
 
-    @Then("^Click On Sort By Option and Select Customer Rating$")
+    @Then("^click On item per page and select 24$")
     public void clickOnSortByAndSelectCustomerRating() throws InterruptedException {
-        Thread.sleep(7000);
-        ActOn.element(driver, SelectSortBy).click();
+        Thread.sleep(5000);
+        ActOn.element(driver, SelectItemPerPage).click();
         Thread.sleep(2000);
-        ActOn.element(driver, SelectCustomerRating).click();
-        LOGGER.info("User Clicked On Sort By Option and Select Customer Rating");
+        ActOn.element(driver, Select24).click();
+        LOGGER.info("User Clicked On item per page and select 24");
     }
 
     @Then("^user closed the webbrowser$")
