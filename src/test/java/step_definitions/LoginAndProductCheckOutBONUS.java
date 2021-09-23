@@ -164,6 +164,6 @@ public class LoginAndProductCheckOutBONUS {
     @And("^user close the browser successfully$")
     public void closeBrowser() throws InterruptedException {
         Thread.sleep(2000);
-        LOGGER.info("User closed the browser successfully$");
+        LOGGER.info("User closed the browser successfully");
     }
 }
