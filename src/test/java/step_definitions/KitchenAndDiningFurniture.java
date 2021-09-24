@@ -13,15 +13,15 @@ import org.openqa.selenium.WebDriver;
 public class KitchenAndDiningFurniture {
 
     private static final By FurnitureTab = By.linkText("Furniture");
-    private static final By KitchenAndDining = By.xpath("//*[@id='openDropdown1']/div/ul/li[3]/a/h3[text()='Kitchen &'and' Dining']");
-    private static final By DiningTableAndSeating = By.xpath("//p[normalize-space()='Dining Tables & Seating']");
-    private static final By KitchenAndDiningTable = By.xpath("//p[normalize-space()='Kitchen & Dining Tables']");
-    private static final By SelectShape = By.xpath("//*[@id='CollapsePanel-0']/div/div/div/div/div[1]/div/div/div[1]/div/div/div/label");
-    private static final By Seat2 = By.xpath("//*[@id='CollapsePanel-8']/div/div/div/div/div[1]/div/div[1]/div/label/span[1]/span");
-    private static final By Seat4 = By.xpath("//*[@id='CollapsePanel-8']/div/div/div/div/div[1]/div/div[2]/div/label/span[1]/span");
-    private static final By PricePerItem = By.xpath("//p[normalize-space()='Price Per Item']");
-    private static final By MinPrice = By.xpath("//*[@id='textInput-13']");
-    private static final By MaxPrice = By.xpath("//*[@id='textInput-14']");
+    private static final By KitchenAndDining = By.xpath("//h3[@class='DepartmentDropdown-title'][text()='Kitchen &']");
+    private static final By DiningTableAndSeating = By.xpath("//p[@data-hb-id='Text'][text()='Dining Tables & Seating']");
+    private static final By KitchenAndDiningTable = By.xpath("//p[@data-hb-id='Text'][text()='Kitchen & Dining Tables']");
+    private static final By SelectShape = By.xpath("//div[1]/div/div/div[1]/div/div/div/label[@data-hb-id='Selectable']");
+    private static final By Seat2 = By.xpath("//*[@id='CollapsePanel-8']//div[1]/div/div[1]/div/label/span[1]/span");
+    private static final By Seat4 = By.xpath("//*[@id='CollapsePanel-8']//div[1]/div/div[2]/div/label/span[1]/span");
+    private static final By PricePerItem = By.xpath("//p[@data-hb-id='Box'][text()='Price Per Item']");
+    private static final By MinPrice = By.xpath("//input[@id='textInput-13'][@type='number'][@name='lowVal']");
+    private static final By MaxPrice = By.xpath("//input[@id='textInput-14'][@type='number'][@name='highVal']");
 
 
     private static final Logger LOGGER = LogManager.getLogger(KitchenAndDiningFurniture.class);
@@ -31,7 +31,7 @@ public class KitchenAndDiningFurniture {
     public void navigateToHomePage() throws InterruptedException {
         driver.get("https://www.wayfair.com/");
         driver.manage().window().maximize();
-        Thread.sleep(5000);
+        Thread.sleep(3000);
         driver.manage().deleteAllCookies();
         LOGGER.info("User is in the Home Page");
     }

@@ -13,16 +13,16 @@ import org.openqa.selenium.WebDriver;
 public class GameRoomFurniture {
 
     private static final By FurnitureTab = By.linkText("Furniture");
-    private static final By GameRoomFurniture = By.xpath("//*[@id='openDropdown1']/div/ul/li[6]/a");
+    private static final By GameRoomFurniture = By.xpath("//h3[text()='Game Room']");
     private static final By GamingChairs = By.xpath("//p[contains(text(),'Gaming Chairs')]");
     private static final By MinPriceItem = By.xpath("//*[@id='textInput-0']");
     private static final By MaxPriceItem = By.xpath("//*[@id='textInput-1']");
-    private static final By SelectChairType = By.xpath("//*[@id='CollapsePanel-9']/div/div/div/div/div/div[1]/div/div/div/label");
+    private static final By SelectChairType = By.xpath("//div[1]/div/div/div/label[@data-hb-id='Selectable']");
     private static final By WeightCapacity = By.xpath("//p[contains(text(),'Weight Capacity')]");
-    private static final By WeightUpTo200LB = By.xpath("//*[@id='CollapsePanel-12']/div/div/div/div/div[1]/div/label/span[1]/span");
-    private static final By WeightUpTo300LB = By.xpath("//*[@id='CollapsePanel-12']/div/div/div/div/div[2]/div/label/span[1]/span");
-    private static final By SortBy = By.xpath("//*[@id='bd']/div[1]//div[@class='pl-DropdownInput-inputContainer']");
-    private static final By PriceHighToLow = By.xpath("//*[@id='downshift-0-item-3']/div/div");
+    private static final By WeightUpTo200LB = By.xpath("//*[@id='CollapsePanel-12']//div[2]/div/label/span[1]/span");
+    private static final By WeightUpTo300LB = By.xpath("//*[@id='CollapsePanel-12']//div[3]/div/label/span[1]/span");
+    private static final By SortBy = By.xpath("//div/div/div[1]/div[1][@class='pl-DropdownInput-valueContainer']");
+    private static final By PriceHighToLow = By.xpath("//*[@id='downshift-0-item-3']//div[text()='Price Per Item: High-Low']");
 
     private static final Logger LOGGER = LogManager.getLogger(GameRoomFurniture.class);
     WebDriver driver = Hooks.driver;

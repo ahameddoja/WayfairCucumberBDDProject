@@ -14,15 +14,15 @@ import org.openqa.selenium.WebDriver;
 public class BedroomFurniture {
 
     private static final By FurnitureTab = By.linkText("Furniture");
-    private static final By BedRoomFurniture = By.xpath("//div/ul/li[2]/a/h3[text()='Bedroom'and'Furniture']");
+    private static final By BedRoomFurniture = By.xpath("//div/ul/li[2]/a/h3[text()='Bedroom']");
     private static final By BedRoomSets = By.xpath("//p[contains(text(),'Bedroom Sets')]");
-    private static final By KingSizeBed = By.xpath("//div[5]//div[1]//div[1]//div[1]//label[1]");
-    private static final By BedColorWhite = By.xpath("//*[@id='CollapsePanel-17']/div/div/div/div/div[1]/div/label/span[1]/span");
-    private static final By BedColorGray = By.xpath("//*[@id='CollapsePanel-17']/div/div/div/div/div[2]/div/label/span[1]/span");
-    private static final By BedType = By.xpath("//*[@id='CollapseToggle-18']/div[1]/p");
-    private static final By BedPlatForm = By.xpath("//*[@id='CollapsePanel-18']/div/div/div/div/div[1]/div/div[1]/div/label/span[1]/span");
-    private static final By SortBy = By.xpath("//*[@id='bd']/div[1]//div[@class='pl-DropdownInput-inputContainer']");
-    private static final By PriceLowToHigh = By.xpath("//*[@id='downshift-0-item-2']/div/div");
+    private static final By KingSizeBed = By.xpath("//div[5]/div/div/div/label[@data-enzyme-id='ImageCheckbox']");
+    private static final By BedColorWhite = By.xpath("//*[@id='CollapsePanel-17']//div[1]/div/label/span[1]/span");
+    private static final By BedColorGray = By.xpath("//*[@id='CollapsePanel-17']//div[2]/div/label/span[1]/span");
+    private static final By BedType = By.xpath("//div[1]/p[text()='Bed Type']");
+    private static final By BedPlatForm = By.xpath("//*[@id='CollapsePanel-18']//div[1]/div/label/span[1]/span");
+    private static final By SortBy = By.xpath("//div/div/div[1]/div[1][@class='pl-DropdownInput-valueContainer']");
+    private static final By PriceLowToHigh = By.xpath("//*[@id='downshift-0-item-3']/div/div[text()='Price Per Item: High-Low']");
 
     private static final Logger LOGGER = LogManager.getLogger(BedroomFurniture.class);
     WebDriver driver = Hooks.driver;

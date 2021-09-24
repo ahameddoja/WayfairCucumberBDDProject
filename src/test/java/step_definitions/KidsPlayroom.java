@@ -12,22 +12,22 @@ import org.openqa.selenium.WebDriver;
 public class KidsPlayroom {
 
     private static final By BabyAndKids = By.linkText("Baby & Kids");
-    private static final By SelectKidsPlayRoom = By.xpath("//*[@id='openDropdown9']/div/ul/li[9]/a/h3/span");
+    private static final By SelectKidsPlayRoom = By.xpath("//h3[text()='Kids']");
     private static final By SelectIndoorPlay = By.xpath("//p[contains(text(),'Indoor Play')]");
-    private static final By SelectToddlerPlayhouses = By.xpath("//p[normalize-space()='Toddler Playhouses']");
-    private static final By SelectMaterialPlastic = By.xpath("//*[@id='CollapsePanel-0']/div/div/div/div/div/div[2]/div/div/div/label");
-    private static final By SelectAge = By.xpath("//*[@id='CollapsePanel-6']/div/div/div/div/div[1]/div/div/div/label/span[1]/span");
-    private static final By SelectMaximumNumberOfKids1 = By.xpath("//*[@id='CollapsePanel-6']/div/div/div/div/div[2]/div/div[1]/div/label/span[1]/span");
-    private static final By SelectMaximumNumberOfKids2 = By.xpath("//*[@id='CollapsePanel-6']/div/div/div/div/div[2]/div/div[2]/div/label/span[1]/span");
-    private static final By ClickIndoorOutdoorUse = By.xpath("//p[contains(text(),'Indoor/Outdoor Use')]");
-    private static final By SelectOutdoor = By.xpath("//*[@id='CollapsePanel-8']/div/div/div/div/div[2]/div/label/span[1]/span");
-    private static final By SelectIndoor = By.xpath("//*[@id='CollapsePanel-8']/div/div/div/div/div[3]/div/label/span[1]/span");
-    private static final By ClickColorTab = By.xpath("//*[@id='CollapseToggle-9']");
-    private static final By SelectColorBrown = By.xpath("//*[@id='CollapsePanel-9']/div/div/div/div/div[1]/div/label/span[1]/span");
-    private static final By SelectColorRed = By.xpath("//*[@id='CollapsePanel-9']/div/div/div/div/div[2]/div/label/span[1]/span");
-    private static final By SelectColorGray = By.xpath("//*[@id='CollapsePanel-9']/div/div/div/div/div[4]/div/label/span[1]/span");
-    private static final By SelectItemPerPage = By.xpath("//*[@id='sbprodgrid']/div[2]/div/div[1]/span/div/div[1]/div[1]/div[2]");
-    private static final By SelectItemPerPage96 = By.xpath("//*[@id='downshift-29-item-2']/div/div");
+    private static final By SelectToddlerPlayhouses = By.xpath("//*[@id='545073']//div[7]/a/div[@data-hb-id='Box']");
+    private static final By SelectMaterialPlastic = By.xpath("//div[2]/div/div/div/label[@data-hb-id='Selectable']");
+    private static final By SelectAge = By.xpath("//*[@id='CollapsePanel-6']//div[1]/div/div/div/label/span[1]/span");
+    private static final By SelectMaximumNumberOfKids1 = By.xpath("//div[2]/div/div[1]/div/label/span[1]/span");
+    private static final By SelectMaximumNumberOfKids2 = By.xpath("//div[2]/div/label/span[1]/span");
+    private static final By ClickIndoorOutdoorUse = By.xpath("//p[@data-hb-id='Box'][contains(text(),'Indoor/Outdoor Use')]");
+    private static final By SelectOutdoor = By.xpath("//*[@id='CollapsePanel-8']//div[2]/div/label/span[1]/span");
+    private static final By SelectIndoor = By.xpath("//*[@id='CollapsePanel-8']//div[3]/div/label/span[1]/span");
+    private static final By ClickColorTab = By.xpath("//p[@data-hb-id='Box'][text()='Color']");
+    private static final By SelectColorBrown = By.xpath("//*[@id='CollapsePanel-9']//div[1]/div/label/span[1]/span");
+    private static final By SelectColorRed = By.xpath("//*[@id='CollapsePanel-9']//div[2]/div/label/span[1]/span");
+    private static final By SelectColorGray = By.xpath("//*[@id='CollapsePanel-9']//div[4]/div/label/span[1]/span");
+    private static final By SelectItemPerPage = By.xpath("//span/div/div[1]/div[1][@class='pl-DropdownInput-valueContainer']");
+    private static final By SelectItemPerPage96 = By.xpath("//div/div[@data-hb-id='Box'][text()='96']");
 
 
     private static final Logger LOGGER = LogManager.getLogger(KidsPlayroom.class);
@@ -114,9 +114,9 @@ public class KidsPlayroom {
 
     @Then("^user click on Item Per Page dropdown and select 96$")
     public void clickItemPerPage() throws InterruptedException {
-        Thread.sleep(7000);
+        Thread.sleep(2000);
         ActOn.element(driver, SelectItemPerPage).click();
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         ActOn.element(driver, SelectItemPerPage96).click();
         LOGGER.info("User clicked on on Item Per Page dropdown and select 96");
     }

@@ -12,18 +12,18 @@ import org.openqa.selenium.WebDriver;
 public class BabyAndKidsNurseryFurniture {
 
     private static final By BabyAndKids = By.linkText("Baby & Kids");
-    private static final By NurseryFurniture = By.xpath("//*[@id='openDropdown9']/div/ul/li[1]/a/h3/span");
-    private static final By SelectCribs = By.xpath("//*[@id='90450']/div/div/nav/div/div[1]/a");
-    private static final By SelectWhiteColor = By.xpath("//*[@id='CollapsePanel-18']/div/div/div/div/div[1]/div/label/span[1]/span");
-    private static final By SelectGrayColor = By.xpath("//*[@id='CollapsePanel-18']/div/div/div/div/div[2]/div/label/span[1]/span");
+    private static final By NurseryFurniture = By.xpath("//div/ul/li[1]//h3[@class='DepartmentDropdown-title'][text()='Nursery']");
+    private static final By SelectCribs = By.xpath("//div/p[text()='Cribs']");
+    private static final By SelectWhiteColor = By.xpath("//*[@id='CollapsePanel-18']//div[1]/div/label/span[1]/span");
+    private static final By SelectGrayColor = By.xpath("//*[@id='CollapsePanel-18']//div[2]/div/label/span[1]/span");
     private static final By MinPriceInput = By.xpath("//input[@id='textInput-19']");
     private static final By MaxPriceInput = By.xpath("//input[@id='textInput-20']");
     private static final By CribType = By.xpath("//p[contains(text(),'Crib Type')]");
-    private static final By SelectMini = By.xpath("//*[@id='CollapsePanel-28']/div/div/div/div/div[1]/div/div[1]/div/label/span[1]/span");
-    private static final By SelectStandardSize = By.xpath("//*[@id='CollapsePanel-28']/div/div/div/div/div[1]/div/div[3]/div/label/span[1]/span");
+    private static final By SelectMini = By.xpath("//*[@id='CollapsePanel-28']//div[1]/div/div[1]/div/label/span[1]/span");
+    private static final By SelectStandardSize = By.xpath("//*[@id='CollapsePanel-28']//div[1]/div/div[3]/div/label/span[1]/span");
     private static final By CustomerRating = By.xpath("//p[contains(text(),'Customer Rating')]");
-    private static final By SelectFiveStar = By.xpath("//*[@id='CollapsePanel-30']/div/div/div/div[1]/label/span[1]/span");
-    private static final By ItemPerPage = By.xpath("//*[@id='sbprodgrid']/div[2]/div/div[1]/span/div/div[1]/div[1]/div[2]");
+    private static final By SelectFiveStar = By.xpath("//*[@id='CollapsePanel-30']//div[1]/label/span[1]/span");
+    private static final By ItemPerPage = By.xpath("//*[@id='sbprodgrid']//div[2][@aria-haspopup='listbox']");
     private static final By Select24 = By.xpath("//div[@class='pl-Box--defaultColor'][normalize-space()='24']");
 
     private static final Logger LOGGER = LogManager.getLogger(BabyAndKidsNurseryFurniture.class);

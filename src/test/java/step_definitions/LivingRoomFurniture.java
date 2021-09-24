@@ -11,14 +11,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class LivingRoomFurniture {
+
     private static final By FurnitureTab = By.linkText("Furniture");
-    private static final By LivingRoomFurniture = By.xpath("//*[@id='openDropdown1']/div/ul/li[1]/a");
-    private static final By SofasTab = By.xpath("//p[normalize-space()='Sofas']");
-    private static final By SelectSofaType = By.xpath("//*[@id='CollapsePanel-0']/div/div/div/div/div[1]/div/div/div[2]/div/div/div/label");
-    private static final By selectSofaDesign = By.xpath("//*[@id='CollapsePanel-0']/div/div/div/div/div[2]/div/div/div[1]/div/div/div/label");
-    private static final By ClickPricePerItem = By.xpath("//p[normalize-space()='Price Per Item']");
-    private static final By MinPriceRange = By.xpath("//input[@id='textInput-20'and@name='lowVal'and@type='number']");
-    private static final By MaxPriceRange = By.xpath("//input[@id='textInput-21'and@name='highVal']");
+    private static final By LivingRoomFurniture = By.xpath("//h3[@class='DepartmentDropdown-title'][text()='Living Room']");
+    private static final By SofasTab = By.xpath("//*[@id='45982']//div[1]/a[@data-hb-id='Card'][@class='pl-Card pl-Card--contained pl-Card--row']");
+    private static final By SelectSofaType = By.xpath("//div[1]/div/div/div[2]/div/div/div/label[@class='pl-SelectableInput'][@data-enzyme-id='ImageCheckbox']");
+    private static final By selectSofaDesign = By.xpath("//div[2]/div/div/div[1]/div/div/div/label[@data-hb-id='Selectable'][@data-enzyme-id='ImageCheckbox']");
+    private static final By ClickPricePerItem = By.xpath("//p[@data-hb-id='Box'][text()='Price Per Item']");
+    private static final By MinPriceRange = By.xpath("//input[@id='textInput-20'][@type='number'][@name='lowVal']");
+    private static final By MaxPriceRange = By.xpath("//input[@id='textInput-21'][@type='number'][@name='highVal']");
 
     private static final Logger LOGGER = LogManager.getLogger(step_definitions.LivingRoomFurniture.class);
     WebDriver driver = Hooks.driver;
@@ -27,7 +28,7 @@ public class LivingRoomFurniture {
         public void navigateToHomePage() throws InterruptedException {
         driver.get("https://www.wayfair.com/");
         driver.manage().window().maximize();
-        Thread.sleep(5000);
+        Thread.sleep(3000);
         driver.manage().deleteAllCookies();
         LOGGER.info("User is in the Home Page");
     }
@@ -71,14 +72,14 @@ public class LivingRoomFurniture {
     }
     @And("^input min price range for an item$")
     public void inputMinMaxPrice() throws InterruptedException {
-        Thread.sleep(1000);
+        Thread.sleep(3000);
         ActOn.element(driver, MinPriceRange).setValue("clear");
         ActOn.element(driver, MinPriceRange).setValue("100");
         LOGGER.info("User inputs min price range for an item");
     }
     @Then("^input max price range for an item$")
     public void inputMaxMaxPrice() throws InterruptedException {
-        Thread.sleep(1000);
+        Thread.sleep(3000);
         ActOn.element(driver, MaxPriceRange).setValue("clear");
         ActOn.element(driver, MaxPriceRange).setValue("500");
         LOGGER.info("User inputs min and max price range for an item");
