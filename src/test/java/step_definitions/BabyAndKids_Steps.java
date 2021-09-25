@@ -218,7 +218,7 @@ public class BabyAndKids_Steps {
     }
 
     @Then("^click On item per page and select 96$")
-    public void clickOnSortByOption() {
+    public void clickOnSortByOption() throws InterruptedException {
         babyAndKids.clickOnSortByOption();
     }
 

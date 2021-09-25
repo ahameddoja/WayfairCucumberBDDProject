@@ -11,8 +11,8 @@ public class Furniture {
     public WebDriver driver;
 
     private static final By FurnitureTab = By.linkText("Furniture");
-    private static final By LivingRoomFurniture = By.xpath("//h3[@class='DepartmentDropdown-title'][text()='Living Room']");
-    private static final By SofasTab = By.xpath("//div[1]/a[@data-hb-id='Card'][@class='pl-Card pl-Card--contained pl-Card--row']");
+    private static final By LivingRoomFurniture = By.xpath("//a/h3[text()='Living Room']");
+    private static final By SofasTab = By.xpath("//div/div/nav/div/div[1]/a[@data-hb-id='Card'][@class='pl-Card pl-Card--contained pl-Card--row']");
     private static final By SelectSofaType = By.xpath("//div[1]/div/div/div[2]/div/div/div/label[@class='pl-SelectableInput'][@data-enzyme-id='ImageCheckbox']");
     private static final By selectSofaDesign = By.xpath("//div[2]/div/div/div[1]/div/div/div/label[@data-hb-id='Selectable'][@data-enzyme-id='ImageCheckbox']");
     private static final By ClickPricePerItem = By.xpath("//p[@data-hb-id='Box'][text()='Price Per Item']");
@@ -65,21 +65,21 @@ public class Furniture {
     }
 
     public Furniture mouseHoverToFurnitureTab() {
-        ActOn.element(driver, FurnitureTab).mouseHover();
         ActOn.wait(driver, FurnitureTab).waitForElementToBEVisible();
+        ActOn.element(driver, FurnitureTab).mouseHover();
         LOGGER.info("User mouse hover to furniture tab");
         return this;
     }
 
     public Furniture clickOnLivingRoomFurniture() {
+        ActOn.wait(driver, LivingRoomFurniture).waitForElementToBEVisible();
         ActOn.element(driver,LivingRoomFurniture).click();
-        ActOn.wait(driver,LivingRoomFurniture).waitForElementToBEVisible();
         LOGGER.info("User clicked on Living Room Furniture Link");
         return this;
     }
 
     public Furniture clickOnSofasTab() throws InterruptedException {
-        Thread.sleep(3000);
+        ActOn.wait(driver, SofasTab).waitForElementToBEVisible();
         ActOn.element(driver, SofasTab).click();
         LOGGER.info("User clicked on Sofas tab");
         return this;
@@ -262,45 +262,45 @@ public class Furniture {
     }
 
     public Furniture clickKitchenAndDiningFurniture() {
-        ActOn.element(driver, KitchenAndDining).click();
         ActOn.wait(driver, KitchenAndDining).waitForElementToBEVisible();
+        ActOn.element(driver, KitchenAndDining).click();
         LOGGER.info("User clicked on Kitchen and Dining Furniture Link");
         return this;
     }
 
     public Furniture clickOnDiningTablesAndSeating() {
-        ActOn.element(driver, DiningTableAndSeating).click();
         ActOn.wait(driver, DiningTableAndSeating).waitForElementToBEVisible();
+        ActOn.element(driver, DiningTableAndSeating).click();
         LOGGER.info("User clicked on Dining Tables and Seating tab");
         return this;
     }
 
     public Furniture clickOnKitchenAndDiningTables() {
-        ActOn.element(driver, KitchenAndDiningTable).click();
         ActOn.wait(driver, KitchenAndDiningTable).waitForElementToBEVisible();
+        ActOn.element(driver, KitchenAndDiningTable).click();
         LOGGER.info("User clicked on Kitchen and Dining Room Sets");
         return this;
     }
 
     public Furniture selectTableShape() {
-        ActOn.element(driver, SelectShape).click();
         ActOn.wait(driver, SelectShape).waitForElementToBEVisible();
+        ActOn.element(driver, SelectShape).click();
         LOGGER.info("User selected Rectangular from Table Shape Option");
         return this;
     }
 
     public Furniture selectSeatsFromSeatingCapacityOption() {
-        ActOn.element(driver, Seat2).click();
         ActOn.wait(driver, Seat2).waitForElementToBEVisible();
-        ActOn.element(driver, Seat4).click();
+        ActOn.element(driver, Seat2).click();
         ActOn.wait(driver, Seat4).waitForElementToBEVisible();
+        ActOn.element(driver, Seat4).click();
         LOGGER.info("User selected Seats 2 and 4 from Seating Capacity Option");
         return this;
     }
 
     public Furniture clickPricePerItem() {
-        ActOn.element(driver, PricePerItem).click();
         ActOn.wait(driver, PricePerItem).waitForElementToBEVisible();
+        ActOn.element(driver, PricePerItem).click();
         LOGGER.info("User clicked Price Per Item option");
         return this;
     }
@@ -317,15 +317,15 @@ public class Furniture {
     }
 
     public Furniture mouseHoverOnOfficeFurnitureTab() {
-        ActOn.element(driver, FurnitureTab).mouseHover();
         ActOn.wait(driver, FurnitureTab).waitForElementToBEVisible();
+        ActOn.element(driver, FurnitureTab).mouseHover();
         LOGGER.info("User mouse hover to furniture tab");
         return this;
     }
 
     public Furniture clickOnOfficeLink() {
-        ActOn.element(driver, OfficeFurniture).click();
         ActOn.wait(driver, OfficeFurniture).waitForElementToBEVisible();
+        ActOn.element(driver, OfficeFurniture).click();
         LOGGER.info("user clicked on office Furniture$ link");
         return this;
     }

@@ -26,7 +26,7 @@ public class Furniture_Step {
         LOGGER.info("User is in the Home Page");
     }
     @When("^user mouse hover to furniture tab$")
-    public void mouseHoverToFurnitureTab() {
+    public void mouseHoverToFurnitureTab() throws InterruptedException {
         furniture.mouseHoverToFurnitureTab();
     }
 

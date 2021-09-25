@@ -378,8 +378,8 @@ public class BabyAndKids {
         return this;
     }
 
-    public BabyAndKids clickOnSortByOption() {
-        ActOn.wait(driver, ItemsPerPage).waitForElementToBEVisible();
+    public BabyAndKids clickOnSortByOption() throws InterruptedException {
+        Thread.sleep(5000);
         ActOn.element(driver, ItemsPerPage).click();
         ActOn.wait(driver, Select96).waitForElementToBEVisible();
         ActOn.element(driver, Select96).click();
