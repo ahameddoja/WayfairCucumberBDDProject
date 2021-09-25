@@ -9,8 +9,9 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/Features",
         glue = {"step_definitions"},
         plugin = {"pretty", "summary"},
-        publish = true
-
+        publish = true,
+        dryRun = false
+//        tags="@SmokeTesting"
 )
 public class TestRunner {
 }

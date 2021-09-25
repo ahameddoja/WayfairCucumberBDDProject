@@ -9,6 +9,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import utilities.ReadConfigFiles;
 
 public class LoginAndProductCheckOutBONUS {
 
@@ -19,13 +20,13 @@ public class LoginAndProductCheckOutBONUS {
     private static final By EnterPassWord = By.xpath("//input[@name='password']");
     private static final By ClickOnSignInButton = By.xpath("//button[@type='submit']");
     private static final By OutdoorOption = By.linkText("Outdoor");
-    private static final By SelectGarden = By.xpath("//*[@id='openDropdown2']/div/ul/li[5]/a/h3/span[text()='Garden']");
-    private static final By ClickPlanters = By.xpath("//*[@id='489047']/div/div/nav/div/div[1]/a/div/p[text()='Planters']");
-    private static final By ClickPlanterBoxesType = By.xpath("//*[@id='CollapsePanel-0']/div/div/div/div/div/div[2]/div/div/div/label[@data-codeception-id='ImageCheckbox']");
-    private static final By ClickProduct = By.xpath("//*[@id='ProductCard-details-W001508325']/div/h2[text()='Hirst Wood Planter Box']");
+    private static final By SelectGarden = By.xpath("//span[@class='DepartmentDropdown-iconContainer'][text()='Garden']");
+    private static final By ClickPlanters = By.xpath("//p[@data-hb-id='Text'][text()='Planters']");
+    private static final By ClickPlanterBoxesType = By.xpath("//div[2]/div/div/div/label[@class='pl-SelectableInput'][@data-hb-id='Selectable']");
+    private static final By ClickProduct = By.xpath("//div/h2[text()='Hirst Wood Planter Box'][@class='ProductCard-name']");
     private static final By ClickAddToCartButton = By.id("btn-add-to-cart");
-    private static final By NoThanksButton = By.xpath("//button[@data-enzyme-id='NO_THANKS_BUTTON']");
-    private static final By ClickReviewCartButton = By.xpath("//a[@data-enzyme-id='continueToCartCta']");
+//    private static final By NoThanksButton = By.xpath("//button[@type='button'][@data-enzyme-id='NO_THANKS_BUTTON']");
+    private static final By ClickReviewCartButton = By.xpath("//a[@data-enzyme-id='continueToCartCta'][@data-hb-id='Button']");
     private static final By ClickShipToButton = By.xpath("//*[@id='sideRail']//button[2][@class='Button Button--primary Button--plainText']");
     private static final By InputZipCode = By.xpath("//*[@id='textInput-0'][@name='postal_code_input']");
     private static final By ClickUpdateButton = By.xpath("//*[@id='sideRail']//button[text()='Update']");
@@ -38,11 +39,8 @@ public class LoginAndProductCheckOutBONUS {
     WebDriver driver = Hooks.driver;
 
     @Given("^user navigate to home page$")
-    public void navigateToHomePage() throws InterruptedException {
-        driver.get("https://www.wayfair.com/");
-        driver.manage().window().maximize();
-        Thread.sleep(2000);
-        driver.manage().deleteAllCookies();
+    public void navigateToHomePage() {
+        ActOn.browser(driver).openBrowser(ReadConfigFiles.getPropertyValues("SiteURL"));
         LOGGER.info("User is in the Home Page");
     }
 
@@ -99,12 +97,12 @@ public class LoginAndProductCheckOutBONUS {
         LOGGER.info("User clicked on add to Cart button");
     }
 
-    @And("^user clicked on No Thanks button$")
-    public void clickNoThanksButton() throws InterruptedException {
-         Thread.sleep(5000);
-         ActOn.element(driver, NoThanksButton).click();
-         LOGGER.info("User clicked on No Thanks button");
-    }
+//    @And("^user clicked on No Thanks button$")
+//    public void clickNoThanksButton() throws InterruptedException {
+//         Thread.sleep(5000);
+//         ActOn.element(driver, NoThanksButton).click();
+//         LOGGER.info("User clicked on No Thanks button");
+//    }
 
     @Then("^user click on Review Cart button$")
     public void clickReviewCartButton() throws InterruptedException {
