@@ -25,7 +25,7 @@ public class LoginAndProductCheckOutBONUS {
     private static final By ClickPlanterBoxesType = By.xpath("//div[2]/div/div/div/label[@class='pl-SelectableInput'][@data-hb-id='Selectable']");
     private static final By ClickProduct = By.xpath("//div/h2[text()='Hirst Wood Planter Box'][@class='ProductCard-name']");
     private static final By ClickAddToCartButton = By.id("btn-add-to-cart");
-//    private static final By NoThanksButton = By.xpath("//button[@type='button'][@data-enzyme-id='NO_THANKS_BUTTON']");
+    private static final By NoThanksButton = By.xpath("//button[@type='button'][@data-enzyme-id='NO_THANKS_BUTTON']");
     private static final By ClickReviewCartButton = By.xpath("//a[@data-enzyme-id='continueToCartCta'][@data-hb-id='Button']");
     private static final By ClickShipToButton = By.xpath("//*[@id='sideRail']//button[2][@class='Button Button--primary Button--plainText']");
     private static final By InputZipCode = By.xpath("//*[@id='textInput-0'][@name='postal_code_input']");
@@ -45,114 +45,113 @@ public class LoginAndProductCheckOutBONUS {
     }
 
     @When("^user click on menu bar from left$")
-    public void clickOnMenuBar() throws InterruptedException {
-        Thread.sleep(2000);
+    public void clickOnMenuBar() {
+        ActOn.wait(driver, ClickMenuOption).waitForElementToBEVisible();
         ActOn.element(driver, ClickMenuOption).click();
         LOGGER.info("User clicked on menu bar from left");
     }
 
     @Then("^user click on Sign In Button$")
-    public void clickSignInButton() throws InterruptedException {
-        Thread.sleep(2000);
+    public void clickSignInButton() {
+        ActOn.wait(driver, ClickSignInButton).waitForElementToBEVisible();
         ActOn.element(driver, ClickSignInButton).click();
         LOGGER.info("User clicked on Sign In Button");
     }
 
     @Then("^user enters email \"(.+?)\" and \"(.+?)\" password click continue button$")
-    public void enterUserCredentials(String Email, String Password) throws InterruptedException {
-        Thread.sleep(1000);
+    public void enterUserCredentials(String Email, String Password) {
+        ActOn.wait(driver, EnterEmailAddress).waitForElementToBEVisible();
         ActOn.element(driver, EnterEmailAddress).setValue(Email);
         ActOn.element(driver, ClickContinueButton).click();
-        Thread.sleep(1000);
+        ActOn.wait(driver, EnterPassWord).waitForElementToBEVisible();
         ActOn.element(driver, EnterPassWord).setValue(Password);
         ActOn.element(driver, ClickOnSignInButton).click();
         LOGGER.info("User has entered email and password To Log In");
     }
 
     @Then("^user mouse hover to outdoor menu and click on garden$")
-    public void mouseHoverToOutdoor() throws InterruptedException {
-        Thread.sleep(2000);
+    public void mouseHoverToOutdoor() {
+        ActOn.wait(driver, OutdoorOption).waitForElementToBEVisible();
         ActOn.element(driver, OutdoorOption).mouseHover();
-        Thread.sleep(2000);
+        ActOn.wait(driver, SelectGarden).waitForElementToBEVisible();
         ActOn.element(driver, SelectGarden).click();
         LOGGER.info("User mouse hover to outdoor menu and clicked on garden");
     }
 
     @Then("^user click on planters and select type and product$")
-    public void clickPlantersAndSelectProduct() throws InterruptedException {
-        Thread.sleep(2000);
+    public void clickPlantersAndSelectProduct() {
+        ActOn.wait(driver, ClickPlanters).waitForElementToBEVisible();
         ActOn.element(driver, ClickPlanters).click();
-        Thread.sleep(2000);
+        ActOn.wait(driver, ClickPlanterBoxesType).waitForElementToBEVisible();
         ActOn.element(driver, ClickPlanterBoxesType).click();
-        Thread.sleep(2000);
+        ActOn.wait(driver, ClickProduct).waitForElementToBEVisible();
         ActOn.element(driver, ClickProduct).click();
         ActOn.element(driver, ClickProduct).userInNewWindow();
         LOGGER.info("User clicked on planters and select a product");
     }
 
     @And("^user click on add to Cart button$")
-    public void clickAddToCartButton() throws InterruptedException {
-        Thread.sleep(5000);
+    public void clickAddToCartButton() {
+        ActOn.wait(driver, ClickAddToCartButton).waitForElementToBEVisible();
         ActOn.element(driver, ClickAddToCartButton).click();
         LOGGER.info("User clicked on add to Cart button");
     }
 
-//    @And("^user clicked on No Thanks button$")
-//    public void clickNoThanksButton() throws InterruptedException {
-//         Thread.sleep(5000);
-//         ActOn.element(driver, NoThanksButton).click();
-//         LOGGER.info("User clicked on No Thanks button");
-//    }
+    @And("^user click on No Thanks Button in popup$")
+    public void clickNoThanksButton() {
+        ActOn.wait(driver, NoThanksButton).waitForElementToBEVisible();
+         ActOn.element(driver, NoThanksButton).click();
+         LOGGER.info("User clicked on No Thanks button");
+    }
 
     @Then("^user click on Review Cart button$")
-    public void clickReviewCartButton() throws InterruptedException {
-        Thread.sleep(2000);
+    public void clickReviewCartButton() {
+        ActOn.wait(driver, ClickReviewCartButton).waitForElementToBEVisible();
         ActOn.element(driver, ClickReviewCartButton).click();
         LOGGER.info("User clicked on Review Cart button");
     }
 
     @Then("^user click on ship to button$")
-    public void clickOnShipToButton() throws InterruptedException {
-        Thread.sleep(2000);
+    public void clickOnShipToButton() {
+        ActOn.wait(driver, ClickShipToButton).waitForElementToBEVisible();
         ActOn.element(driver, ClickShipToButton).click();
         LOGGER.info("User clicked on ship to button");
     }
 
     @And("^user provide the \"(.+?)\" in Ship to option and click the update button$")
-    public void enterZipCode(String ZipCode) throws InterruptedException {
-        Thread.sleep(1000);
+    public void enterZipCode(String ZipCode) {
+        ActOn.wait(driver, InputZipCode).waitForElementToBEVisible();
         ActOn.element(driver, InputZipCode).setValue(ZipCode);
-        Thread.sleep(1000);
+        ActOn.wait(driver, ClickUpdateButton).waitForElementToBEVisible();
         ActOn.element(driver, ClickUpdateButton).click();
         LOGGER.info("User provided zipcode in Ship to option and click the update button");
     }
 
     @Then("^user click on Proceed to Checkout button$")
-    public void clickOnProceedToCheckoutButton() throws InterruptedException {
-        Thread.sleep(2000);
+    public void clickOnProceedToCheckoutButton() {
+        ActOn.wait(driver, ClickProceedToCheckoutButton).waitForElementToBEVisible();
         ActOn.element(driver, ClickProceedToCheckoutButton).click();
         LOGGER.info("User clicked on Proceed to Checkout button");
     }
 
     @Then("^user click on Back to Cart button$")
-    public void clickOnBackToCartButton() throws InterruptedException {
-        Thread.sleep(2000);
+    public void clickOnBackToCartButton() {
+        ActOn.wait(driver, ClickBackToCartButton).waitForElementToBEVisible();
         ActOn.element(driver, ClickBackToCartButton).click();
         LOGGER.info("User clicked on Back to Cart button");
     }
 
     @And("^user click on menu bar from left again and click SignOut Button$")
-    public void clickOnMenuButton() throws InterruptedException {
-        Thread.sleep(2000);
+    public void clickOnMenuButton() {
+        ActOn.wait(driver, ClickMenuOption).waitForElementToBEVisible();
         ActOn.element(driver, ClickMenuOption).click();
-        Thread.sleep(2000);
+        ActOn.wait(driver, ClickSignOutButton).waitForElementToBEVisible();
         ActOn.element(driver, ClickSignOutButton).click();
         LOGGER.info("User clicked on menu bar from left again and click SignOut Button");
     }
 
     @And("^user close the browser successfully$")
-    public void closeBrowser() throws InterruptedException {
-        Thread.sleep(2000);
+        public void closeBrowser() {
         LOGGER.info("User closed the browser successfully");
     }
 }

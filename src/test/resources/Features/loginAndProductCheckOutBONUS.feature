@@ -8,6 +8,7 @@ Feature: Test login and product checkout functionalities
     Then user mouse hover to outdoor menu and click on garden
     Then user click on planters and select type and product
     And  user click on add to Cart button
+    Then user click on No Thanks Button in popup
     Then user click on Review Cart button
     Then user click on ship to button
     And  user provide the "<Zip Code>" in Ship to option and click the update button
