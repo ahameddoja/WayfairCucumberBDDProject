@@ -1,5 +1,5 @@
 Feature: Test login and product checkout functionalities
-
+  @SmokeTesting
   Scenario Outline: Verify Login and product checkout functionalities
     Given user navigate to home page
     When user click on menu bar from left

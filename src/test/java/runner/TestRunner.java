@@ -10,8 +10,8 @@ import org.junit.runner.RunWith;
         glue = {"step_definitions"},
         plugin = {"pretty", "summary"},
         publish = true,
-        dryRun = false
-//        tags="@SmokeTesting"
+        dryRun = false,
+        tags="@SmokeTesting"
 )
 public class TestRunner {
 }
