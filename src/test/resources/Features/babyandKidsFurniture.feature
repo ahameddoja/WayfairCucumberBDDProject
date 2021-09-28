@@ -1,4 +1,4 @@
-Feature: Navigate Through Nursery Furniture
+Feature: Test functionalities of Baby & Kids category
 
 
   Scenario: verify Nursery Furniture Category

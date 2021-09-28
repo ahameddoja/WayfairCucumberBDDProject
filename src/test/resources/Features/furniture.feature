@@ -1,4 +1,4 @@
-Feature: Test functionalities of furniture page
+Feature: Test functionalities of furniture category
 
   Scenario: verify Living Room Furniture Category
      Given user is in the home page
