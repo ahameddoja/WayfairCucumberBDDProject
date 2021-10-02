@@ -38,6 +38,7 @@ public class Furniture_Step {
     @Then("^user click on Sofas tab$")
     public void clickOnSofasTab() throws InterruptedException {
         furniture.clickOnSofasTab();
+        furniture.clickOnTypeDesign();
     }
 
     @And("^select sofa type$")
@@ -117,7 +118,7 @@ public class Furniture_Step {
     }
 
     @Then("^user click on Sort by dropdown menu$")
-    public void clickSortByOption() {
+    public void clickSortByOption() throws InterruptedException {
         furniture.clickSortByOption();
     }
 

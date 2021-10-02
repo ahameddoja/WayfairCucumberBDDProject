@@ -13,21 +13,24 @@ public class Furniture {
     private static final By FurnitureTab = By.linkText("Furniture");
     private static final By LivingRoomFurniture = By.xpath("//a/h3[text()='Living Room']");
     private static final By SofasTab = By.xpath("//div/div/nav/div/div[1]/a[@data-hb-id='Card'][@class='pl-Card pl-Card--contained pl-Card--row']");
+    private static final By ClickTypeDesign = By.xpath("//p[@class='pl-Box--defaultColor'][text()='Type / Design']");
     private static final By SelectSofaType = By.xpath("//div[1]/div/div/div[2]/div/div/div/label[@class='pl-SelectableInput'][@data-enzyme-id='ImageCheckbox']");
     private static final By selectSofaDesign = By.xpath("//div[2]/div/div/div[1]/div/div/div/label[@data-hb-id='Selectable'][@data-enzyme-id='ImageCheckbox']");
-    private static final By ClickPricePerItem = By.xpath("//p[@data-hb-id='Box'][text()='Price Per Item']");
-    private static final By MinPriceRange = By.xpath("//input[@id='textInput-20'][@type='number'][@name='lowVal']");
-    private static final By MaxPriceRange = By.xpath("//input[@id='textInput-21'][@type='number'][@name='highVal']");
+    private static final By ClickPricePerItem = By.xpath("//p[@class='pl-Box--defaultColor'][text()='Price Per Item']");
+    private static final By MinPriceRange = By.xpath("//input[@id='textInput-7'][@type='number'][@name='lowVal']");
+    private static final By MaxPriceRange = By.xpath("//input[@id='textInput-8'][@type='number'][@name='highVal']");
 
-    private static final By BedRoomFurniture = By.xpath("//div/ul/li[2]/a/h3[text()='Bedroom']");
+    private static final By BedRoomFurniture = By.xpath("//a/h3[text()='Bedroom']");
     private static final By BedRoomSets = By.xpath("//p[contains(text(),'Bedroom Sets')]");
+    private static final By SelectBedSize = By.xpath("//p[@class='pl-Box--defaultColor'][text()='Bed Size']");
     private static final By KingSizeBed = By.xpath("//div[5]/div/div/div/label[@data-enzyme-id='ImageCheckbox']");
-    private static final By BedColorWhite = By.xpath("//*[@id='CollapsePanel-17']//div[1]/div/label/span[1]/span");
-    private static final By BedColorGray = By.xpath("//*[@id='CollapsePanel-17']//div[2]/div/label/span[1]/span");
-    private static final By BedType = By.xpath("//div[1]/p[text()='Bed Type']");
-    private static final By BedPlatForm = By.xpath("//*[@id='CollapsePanel-18']//div[1]/div/label/span[1]/span");
+    private static final By SelectColor = By.xpath("//p[@class='pl-Box--defaultColor'][text()='Color']");
+    private static final By BedColorWhite = By.xpath("//*[@id='CollapsePanel-2']/div/div/div/div/div[1]/div/label/span[1]/span");
+    private static final By BedColorGray = By.xpath("//*[@id='CollapsePanel-2']/div/div/div/div/div[2]/div/label/span[1]/span");
+    private static final By SelectBedType = By.xpath("//p[@class='pl-Box--defaultColor'][text()='Bed Type']");
+    private static final By BedPlatForm = By.xpath("//*[@id='CollapsePanel-3']/div/div/div/div/div[1]/div/div[2]/div/label/span[1]/span");
     private static final By SortBy = By.xpath("//div/div/div[1]/div[1][@class='pl-DropdownInput-valueContainer']");
-    private static final By PriceLowToHigh = By.xpath("//*[@id='downshift-0-item-3']/div/div[text()='Price Per Item: High-Low']");
+    private static final By PriceLowToHigh = By.xpath("//div[@class='pl-Box--defaultColor'][text()='Price Per Item: Low-High']");
 
     private static final By GameRoomFurniture = By.xpath("//h3[text()='Game Room']");
     private static final By GamingChairs = By.xpath("//p[contains(text(),'Gaming Chairs')]");
@@ -78,10 +81,17 @@ public class Furniture {
         return this;
     }
 
-    public Furniture clickOnSofasTab() throws InterruptedException {
+    public Furniture clickOnSofasTab(){
         ActOn.wait(driver, SofasTab).waitForElementToBEVisible();
         ActOn.element(driver, SofasTab).click();
         LOGGER.info("User clicked on Sofas tab");
+        return this;
+    }
+
+    public Furniture clickOnTypeDesign() {
+        ActOn.wait(driver, ClickTypeDesign).waitForElementToBEVisible();
+        ActOn.element(driver, ClickTypeDesign).click();
+        LOGGER.info("User clicked on Sofas Type Design Tab");
         return this;
     }
 
@@ -122,8 +132,8 @@ public class Furniture {
     }
 
     public Furniture mouseHoverOnFurnitureTab() {
-        ActOn.element(driver, FurnitureTab).mouseHover();
         ActOn.wait(driver, FurnitureTab).waitForElementToBEVisible();
+        ActOn.element(driver, FurnitureTab).mouseHover();
         LOGGER.info("User mouse hover to furniture tab");
         return this;
     }
@@ -143,14 +153,16 @@ public class Furniture {
     }
 
     public Furniture selectBedSize() {
-        ActOn.wait(driver, KingSizeBed).waitForElementToBEVisible();
+        ActOn.wait(driver, SelectBedSize).waitForElementToBEVisible();
+        ActOn.element(driver, SelectBedSize).click();
         ActOn.element(driver, KingSizeBed).click();
         LOGGER.info("User clicked on Bed size");
         return this;
     }
 
     public Furniture selectColorWhite() {
-        ActOn.wait(driver, BedColorWhite).waitForElementToBEVisible();
+        ActOn.wait(driver, SelectColor).waitForElementToBEVisible();
+        ActOn.element(driver, SelectColor).click();
         ActOn.element(driver, BedColorWhite).click();
         LOGGER.info("User clicked on Bed color white");
         return this;
@@ -164,8 +176,8 @@ public class Furniture {
     }
 
     public Furniture selectBedType() {
-        ActOn.wait(driver, BedType).waitForElementToBEVisible();
-        ActOn.element(driver, BedType).click();
+        ActOn.wait(driver, SelectBedType).waitForElementToBEVisible();
+        ActOn.element(driver, SelectBedType).click();
         LOGGER.info("User select bed type");
         return this;
     }
@@ -177,8 +189,8 @@ public class Furniture {
         return this;
     }
 
-    public Furniture clickSortByOption() {
-        ActOn.wait(driver, SortBy).waitForElementToBEVisible();
+    public Furniture clickSortByOption() throws InterruptedException {
+        Thread.sleep(7000);
         ActOn.element(driver, SortBy).click();
         LOGGER.info("User click on Sort by dropdown menu");
         return this;
